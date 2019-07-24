@@ -1,0 +1,67 @@
+void maxone(int* A, int n1, int B, int *len1)
+{
+    int i,j,l=0,r=0,max=-1,num=B,a,b;
+    for( i=0;i<n1;i++)
+    {
+        if(A[r]==1)
+        {
+            r++;
+        }
+        else if((A[r]==0)&& B)
+        {
+            B--;
+            r++;
+        }
+        else if(A[r]==0)
+        {
+             while(A[l]!=0)
+                {
+                    l++;
+                }
+                l++;
+            if(B!=num)
+            {
+                B++;
+
+            }
+        }
+            if(l>r)
+            {
+                r=l;
+            }
+            if(r-l>max)
+            {
+               max=r-l;
+               a=l;
+               b=r;
+
+            }
+
+    }
+   printf(" Maximum contiguous 1's are %d at indexes ",max);
+   len1=(int*)malloc((b-a) * sizeof(int));
+   int k=0;
+   for(int i=a;i<b;i++)
+   {
+       len1[k]=i;
+       printf("%d ",len1[k]);
+       k++;
+   }
+
+}
+
+int main()
+{
+    printf("Enter the size of array:");
+    int n,k;
+    scanf("%d",&n);
+    int arr[n];
+    printf("Enter the elements of array:");
+    for(int i=0;i<n;i++)
+        scanf("%d",&arr[i]);
+    printf("Enter the number of zeros you can replace:");
+    scanf("%d",&k);
+    int *array;
+    maxone(arr,n,k,array);
+
+}
