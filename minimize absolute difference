@@ -1,0 +1,68 @@
+#include<stdio.h>
+
+int main()
+{
+    int a,b,c;
+    printf("Enter the size of 3 arrays:");
+    scanf("%d %d %d",&a,&b,&c);
+    int a1[a],a2[b],a3[c];
+    for(int i=0;i<a;i++)
+    scanf("%d",&a1[i]);
+
+     for(int i=0;i<b;i++)
+    scanf("%d",&a2[i]);
+
+     for(int i=0;i<c;i++)
+    scanf("%d",&a3[i]);
+
+    int i=0,j=0,k=0,m=10000,min,max,p,q,r;
+
+    while(i<a&&j<b&&k<c)
+    {
+           if(a1[i]<a2[j] && a1[i]<a3[k]){
+            min=a1[i];
+
+    }
+    else if(a2[j]<a3[k]){
+        min=a2[j];
+
+        }
+    else{
+        min=a3[k];
+
+
+    }
+    if(a1[i]>a2[j] && a1[i]>a3[k]){
+        max=a1[i];
+                  }
+    else if(a2[j]>a3[k]){
+        max=a2[j];
+
+         }
+    else{
+        max=a3[k];
+
+
+    }
+    //printf("%d %d\n",max,min);
+    int d=max-min;
+    if(d<m)
+    {
+        m=d;
+        p=i;
+        q=j;
+        r=k;
+
+    }
+
+       if(min==a1[i])
+        i++;
+       else if(min==a2[j])
+        j++;
+       else
+        k++;
+
+    }
+
+    printf("Minimum absolute difference is %d and pair is ( %d ,%d ,%d )",m,a1[p],a2[q],a3[r]);
+}
