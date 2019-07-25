@@ -1,0 +1,26 @@
+#include<stdio.h>
+int squareroot(int num)
+{
+int mid,l=0,h=(num/2);
+    while(l<=h)
+    {
+        mid=(l+h)/2;
+        if((mid*mid)<num)
+        l=mid+1;
+        else if((mid*mid)>num)
+        h=mid-1;
+        else
+        return mid;
+    }
+    return h;
+}
+
+int main()
+{
+    int num;
+    printf("Enter any number:");
+    scanf("%d",&num);
+    int s=squareroot(num);
+    printf("Squareroot of %d is %d",num,s);
+    
+}
